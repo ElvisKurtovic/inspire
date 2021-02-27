@@ -4,7 +4,9 @@ import { todosService } from "../Services/TodosService.js"
 function _drawTodos() {
     let todolist = ProxyState.todos
     let template = ""
-    document.getElementById("todo").innerHTML = todolist.TodoTemplate;
+
+    todolist.forEach(t => template += t.TodoTemplate)
+    document.getElementById("todo").innerHTML = template;
 }
 export default class TodosController {
     constructor() {
@@ -12,7 +14,16 @@ export default class TodosController {
         ProxyState.on("todos", _drawTodos)
     }
 
-    postTodo() {
-        todosService.postTodo()
+    postTodo(event) {
+        event.preventDefault()
+        let form = event.target
+        let rawTodo = {
+            description: form.description.value
+        }
+        todosService.postTodo(rawTodo)
+    }
+
+    delete(id) {
+        todosService.delete(id)
     }
 }

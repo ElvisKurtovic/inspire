@@ -9,21 +9,12 @@ export default class Todo {
 
     get TodoTemplate() {
         return /*html*/`
-                <div class="col-4 border rounded shadow-sm text-light">
-                    
-                    <form onsubmit="todoApi.postTodo(event, '${this.id}')">
-                        <div class="form-group">
-                            <input required type="text" minlength='3' maxlength='50' name="body" placeholder="Task">
-                            <button class="btn btn-dark" type="submit">Add</button>
-                            </form>
-                            </div>
-                            <div class="row align-content-center justify-content-between">
-                        
-                            <div class='col-12'>
-                            ${this.description}
-                            </div>
-                            </div>
-                </div>
+        <div class='row'>
+        <ul class= '' ><li class=''><span class=''>${this.description}</span> 
+        <input id='checkbox' type="checkbox" value="">    
+        <button type="button" class="btn text-danger close"
+        onclick="app.todosController.delete('${this.id}')"><span>&times;</span></button></li> </ul>
+        </div>
         `
     }
 }

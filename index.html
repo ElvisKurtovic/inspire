@@ -20,7 +20,7 @@
             </a>
         </nav>
     </header>
-    <main>
+    <main class="container-fluid" id="bgimg">
         <div id="weather">
 
         </div>
@@ -29,9 +29,9 @@
         </div>
         <div class="row mt-2">
             <div class="col-12">
-                <form onsubmit="app.postTodo()">
+                <form onsubmit="app.todosController.postTodo(event)">
                     <div class="form-group">
-                        <input required type="text" minlength="3" maxlength="15" name="title" placeholder="Task Title">
+                        <input required type="text" minlength="3" maxlength="15" name="description" placeholder="Task Title">
                         <button class="btn-success btn" type="submit">Add Todo</button>
                     </div>
                 </form>
@@ -48,9 +48,7 @@
             </div>
         </div>
     </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
-        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="app/main.js" type="module"></script>
 </body>
 

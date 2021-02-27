@@ -5,7 +5,7 @@ export const mainApi = axios.create({
 })
 
 // @ts-ignore
-export const todoApi = axios.create({
-    baseURL: "https://bcw-sandbox.herokuapp.com/api/elvis/todos",
-    timeout: 10000
-})
+// export const todoApi = axios.create({
+//     baseURL: "https://bcw-sandbox.herokuapp.com/api/elvis/todos",
+//     timeout: 10000
+// })

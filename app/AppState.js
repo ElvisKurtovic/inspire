@@ -6,6 +6,9 @@ import { EventEmitter } from "./Utils/EventEmitter.js"
 import { isValidProp } from "./Utils/isValidProp.js"
 
 class AppState extends EventEmitter {
+
+  image = null
+
   /** @type {Value[]} */
   values = []
   /** @type {Weather} */
@@ -17,7 +20,8 @@ class AppState extends EventEmitter {
 
   /** @type {Todo} */
 
-  todos = null
+  todos = []
+
 }
 
 export const ProxyState = new Proxy(new AppState(), {

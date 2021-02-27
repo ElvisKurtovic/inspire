@@ -1,29 +1,34 @@
 import { ProxyState } from "../AppState.js";
 import Todo from "../Models/Todo.js";
-import { todoApi } from "./AxiosService.js";
+import { mainApi } from "./AxiosService.js";
 
 class TodosService {
 
     constructor() {
-        // this.getApiQuotes()
+        this.getApiTodos()
     }
 
-    // async getApiQuotes() {
-    //     try {
-    //         const res = await mainApi.get("quotes")
-    //         console.log(res)
-    //         ProxyState.apiQuotes = new Quote(res.data)
-    //     } catch (error) {
-    //         console.error(error)
-    //     }
-    // }
+    async delete(id){
+       const res = await mainApi.delete(`elvis/todos/${id}`)
+        this.getApiTodos()
+    }
 
-    async postTodo() {
+    async getApiTodos() {
         try {
-            let res = await todoApi.post("", ProxyState.todos)
+            const res = await mainApi.get("elvis/todos")
+            console.log(res)
+            ProxyState.todos = res.data.map(rawTodo => new Todo(rawTodo))
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+    async postTodo(rawTodo) {
+        try {
+            const res = await mainApi.post("elvis/todos", rawTodo)
             console.log(res)
             // this.getMyPokemons()
-            ProxyState.todos = new Todo(res.data)
+            ProxyState.todos = [new Todo(res.data), ...ProxyState.todos]
         } catch (error) {
             console.error(error)
         }
