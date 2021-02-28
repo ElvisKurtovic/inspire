@@ -6,7 +6,7 @@ export default class Weather {
 
     get WeatherTemplate() {
         return /*html*/`
-        <div class="card">
+        <div class="card bg-transparent">
                         <div class="card-body">
                             <h3 class="card-title">Temperature: ${this.temp}</h3>
                         </div>

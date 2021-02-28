@@ -10,7 +10,7 @@ export default class Todo {
     get TodoTemplate() {
         return /*html*/`
         <div class='row'>
-        <ul class= '' ><li class=''><span class=''>${this.description}</span> 
+        <ul class= '' ><li class=''><span class='text-light' >${this.description}</span> 
         <input id='checkbox' type="checkbox" value="">    
         <button type="button" class="btn text-danger close"
         onclick="app.todosController.delete('${this.id}')"><span>&times;</span></button></li> </ul>
