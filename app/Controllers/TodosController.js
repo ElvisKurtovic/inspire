@@ -26,4 +26,8 @@ export default class TodosController {
     delete(id) {
         todosService.delete(id)
     }
+
+    putTodo(id) {
+        todosService.putTodo(id)
+    }
 }

@@ -8,8 +8,8 @@ class TodosService {
         this.getApiTodos()
     }
 
-    async delete(id){
-       const res = await mainApi.delete(`elvis/todos/${id}`)
+    async delete(id) {
+        const res = await mainApi.delete(`elvis/todos/${id}`)
         this.getApiTodos()
     }
 
@@ -28,11 +28,25 @@ class TodosService {
             const res = await mainApi.post("elvis/todos", rawTodo)
             console.log(res)
             // this.getMyPokemons()
+            // @ts-ignore
             ProxyState.todos = [new Todo(res.data), ...ProxyState.todos]
         } catch (error) {
             console.error(error)
         }
     }
+
+    async putTodo(id) {
+        try {
+            let todochange = ProxyState.todos.find(t => t.id == id)
+            todochange.completed = !todochange.completed
+            const res = await mainApi.put(`elvis/todos/${id}`, todochange)
+            this.getApiTodos()
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+
 
 
 }

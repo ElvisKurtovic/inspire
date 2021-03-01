@@ -18,7 +18,7 @@ class AppState extends EventEmitter {
 
   apiQuotes = null
 
-  /** @type {Todo} */
+  /** @type {Todo[]} */
 
   todos = []
 
