@@ -42,6 +42,30 @@
   box-sizing: border-box;
 }
 
+/* .footer{
+  opacity: 1 !important; 
+  background-color: rgba(0,0,0,0.6) !important;
+} */
+
+
+
+#hello{
+  font-family: 'Architects Daughter', cursive;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#quotes{
+  font-family: 'Shadows Into Light', cursive;
+    position:absolute;
+    bottom:0;
+    width:100%;
+    /* height:60px; */
+}
+
 #bgimg{
   background-position: center;
   background-repeat: no-repeat;
